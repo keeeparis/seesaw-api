@@ -1,0 +1,26 @@
+name: Build and Deploy
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Deploy webpage
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{secrets.SSH_HOST}}
+          key: ${{secrets.SSH_KEY}}
+          username: ${{secrets.SSH_USERNAME}}
+
+          script: |
+            cd /var/www/seesaw-api
+            git reset --hard
+            git pull
+            source ~/.nvm/nvm.sh
+            # yarn
+            # yarn build
+            pm2 restart seesaw-api
+
+
