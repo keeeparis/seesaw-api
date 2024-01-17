@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_footer_footers",
+  "info": {
+    "displayName": "footer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "telegram": {
+      "type": "string"
+    },
+    "instagram": {
+      "type": "string"
+    }
+  }
+}
